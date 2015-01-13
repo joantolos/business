@@ -2,11 +2,11 @@
 Java, Spring MVC template.  
 Provides the basic functionallity to build a web application with:
 
-* gui
+* front-end
     * bootstrap
     * javascript
     * json
-* backend
+* back-end
     * json
     * database capabilities: postgres
 * configuration files
