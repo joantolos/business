@@ -18,6 +18,7 @@
 		<module>/webapp-common</module>
 		<module>/webapp-backend</module>
 		<module>/webapp-frontend</module>
+		<module>/webapp-ear</module>
 	</modules>
 
 	<dependencyManagement>

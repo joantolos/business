@@ -9,6 +9,6 @@
     <context:component-scan base-package="com.joantolos" />
     <context:annotation-config />
 
-    <context:property-placeholder location="file:${SPRING_MVC_CONF}/spring-mvc-conf.properties"/>
+    <context:property-placeholder location="file:${WEBAPP_CONF}/webapp.properties"/>
 
 </beans>

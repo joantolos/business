@@ -19,7 +19,7 @@ import java.util.ArrayList;
  * Created by u6019943 on 13/01/2015.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"classpath:/spring-mvc-common-context-test.xml"})
+@ContextConfiguration({"classpath:/webapp-common-context-test.xml"})
 public class StringUtilsTest {
 
     private Logger logger = LoggerFactory.getLogger(StringUtilsTest.class);
