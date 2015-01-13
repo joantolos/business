@@ -9,9 +9,9 @@
     <relativePath>../pom.xml</relativePath>
   </parent>
  
-  <artifactId>spring-mvc-war</artifactId>
-  <packaging>war</packaging>
-  <name>--- Spring MVC Template -> War Module</name>
+  <artifactId>spring-mvc-backend</artifactId>
+  <packaging>jar</packaging>
+  <name>--- Spring MVC Template -> Back-End Module</name>
 
   <dependencies>
     <dependency>
@@ -21,7 +21,4 @@
     </dependency>
   </dependencies>
   
-  <build>
-    <finalName>spring-mvc</finalName>
-  </build>
 </project>

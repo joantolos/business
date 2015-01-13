@@ -16,7 +16,8 @@
 
 	<modules>
 		<module>/spring-mvc-common</module>
-		<module>/spring-mvc-war</module>
+		<module>/spring-mvc-backend</module>
+		<module>/spring-mvc-frontend</module>
 	</modules>
 
 	<dependencyManagement>
