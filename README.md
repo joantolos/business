@@ -1,4 +1,4 @@
-# spring-mvc
+# WebApp Template
 Java, Spring MVC template.  
 Provides the basic functionallity to build a web application with:
 
