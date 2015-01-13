@@ -3,22 +3,25 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.joan.tolos.architecture</groupId>
-    <artifactId>spring-mvc</artifactId>
+    <groupId>com.joan.tolos.webapp</groupId>
+    <artifactId>webapp</artifactId>
     <version>15.0.1-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
  
-  <artifactId>spring-mvc-backend</artifactId>
-  <packaging>jar</packaging>
-  <name>--- Spring MVC Template -> Back-End Module</name>
+  <artifactId>webapp-frontend</artifactId>
+  <packaging>war</packaging>
+  <name>--- WebApp Template -> Front-End Module</name>
 
   <dependencies>
     <dependency>
-      <groupId>com.joan.tolos.architecture</groupId>
-      <artifactId>spring-mvc-common</artifactId>
+      <groupId>com.joan.tolos.webapp</groupId>
+      <artifactId>webapp-common</artifactId>
       <version>15.0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
   
+  <build>
+    <finalName>webapp-frontend</finalName>
+  </build>
 </project>

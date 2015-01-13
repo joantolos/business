@@ -3,14 +3,14 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>com.joan.tolos.architecture</groupId>
-		<artifactId>spring-mvc</artifactId>
+		<groupId>com.joan.tolos.webapp</groupId>
+		<artifactId>webapp</artifactId>
 		<version>15.0.1-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
-	<artifactId>spring-mvc-common</artifactId>
-	<name>--- Spring MVC Template -> Common Module</name>
+	<artifactId>webapp-common</artifactId>
+	<name>--- Webapp Template -> Common Module</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

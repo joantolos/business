@@ -14,4 +14,4 @@ Provides the basic functionallity to build a web application with:
 
 Besides some extra utilities to deal and manipulate Strings, Files and Json.
 
-# Starting the application
+# Architecture
