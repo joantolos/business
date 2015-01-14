@@ -14,11 +14,20 @@
   <name>--- WebApp Template -> Back-End Module</name>
 
   <dependencies>
+    <!-- Inner dependencies -->
     <dependency>
       <groupId>com.joan.tolos.webapp</groupId>
       <artifactId>webapp-common</artifactId>
       <version>15.0.1-SNAPSHOT</version>
     </dependency>
+
+    <!-- Third party dependencies -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.6</version>
+    </dependency>
+
   </dependencies>
 
   <build>

@@ -36,7 +36,7 @@ mvn clean install
 on the **'../webapp/'** folder that contains the parent pom. This will compile the frontend, backend, common and api module. You can find the single war file for the frontend, backend and api modules on their respectives target folders, or you can use the ear file generated on the module "webapp-ear".
 
 # Deploying
-You can deploy the single war files on the same or differens machines with tomcat, jboss, etc... or you can use the ear file located on "../webapp/webapp-ear/target" and use tomme or jboss to deploy on the same instance. This is useful for developing on localhost.
+You can deploy the single war files on the same or different machines with tomcat, jboss, etc... or you can use the ear file located on "../webapp/webapp-ear/target" and use tomme or jboss to deploy on the same instance. This is useful for developing on localhost.
 
 # Testing the WebApp
 Use this url to see if the backend is up:
@@ -65,7 +65,7 @@ Change the default port (8080) if you have some custom configuration on your ser
 
 Five basics points for start editing the code:
 
-- **PingController.java*** on the frontend module:
+- **PingController.java** on the frontend module:
 You can map the requests with the corresponding service.
 
 - **PingService.java** and **PingServiceImpl.java**: on the frontend module:

@@ -26,6 +26,8 @@ public class PingServiceImpl implements PingService {
         RestTemplate rest = new RestTemplate();
 
         String pingPongJson = rest.postForObject(this.pongServiceUrl, null, String.class);
-        return (PingPong)this.jsonUtils.jsonToObject(pingPongJson, PingPong.class);
+        PingPong pingPong = (PingPong)this.jsonUtils.jsonToObject(pingPongJson, PingPong.class);
+        
+        return pingPong;
     }
 }

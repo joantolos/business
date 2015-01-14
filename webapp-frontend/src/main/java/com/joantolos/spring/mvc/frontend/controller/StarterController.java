@@ -20,7 +20,7 @@ public class StarterController {
     private Logger logger = LoggerFactory.getLogger(StarterController.class);
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView getRoot(final HttpServletRequest request) throws IOException {
+    public ModelAndView getRoot() throws IOException {
 
         return new ModelAndView("index");
     }
