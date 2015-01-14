@@ -8,7 +8,7 @@ Provides the basic functionallity to build a web application with:
     * json
 * back-end
     * json
-    * database capabilities: postgres
+    * database capabilities: mysql
 * configuration files
     * properties files separated by environment
 
