@@ -54,7 +54,7 @@ http://localhost:8080/webapp-frontend/
 Use this url to test the ping-pong service:
 
 ```
-http://localhost:8080/webapp-frontend/
+http://localhost:8080/webapp-frontend/ping
 ```
 
 You can also click the button on the greetings page to see the Ping Pong service.
@@ -62,5 +62,21 @@ You can also click the button on the greetings page to see the Ping Pong service
 Change the default port (8080) if you have some custom configuration on your server.
 
 # Start hacking
+
+Five basics points for start editing the code:
+
+- **PingController.java*** on the frontend module:
+You can map the requests with the corresponding service.
+
+- **PingService.java** and **PingServiceImpl.java**: on the frontend module:
+What the request will do is basically call a service living on the backend module.
+
+- **PongController.java** on the backend module:
+Receives the request and returns the logic implemented on the corresponding service.
+
+- **PongService.java** and **PongServiceImpl.java** on the backend module:
+Implements the logic of the service (go to database, etc)
+
+- **webapp.properties** file where the endpoints url are defined.
 
 # Maven archetype
