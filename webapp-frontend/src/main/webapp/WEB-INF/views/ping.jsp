@@ -9,7 +9,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Greetings page: WebApp Frontend</title>
+        <title>Ping-Pong page: WebApp Frontend</title>
 
         <link href="./resources/css/bootstrap.min.css" rel="stylesheet" media="screen" >
         <link href="./resources/css/main.css" rel="stylesheet" media="screen" >
@@ -21,13 +21,14 @@
 		<header>
         	<div id="container" class="container">
                 <div id="content" class="col-lg-12 text-center">
-            	    <h1>Greetings page: WebApp Frontend</h1>
+            	    <h1>Ping-Pong page: Testing the ping-pong service</h1>
             	</div>
             </div>
         </header>
 		<div id="container" class="container">
 			<div id="content" class="col-lg-12 text-left">
-				<h2>Frontend alive and well! Bootstrap working.</h2>
+				<h2>Frontend says: PING</h2>
+				<h2>Backend says: ${pingResponse}</h2>
 			</div>
 		</div>
 	</body>

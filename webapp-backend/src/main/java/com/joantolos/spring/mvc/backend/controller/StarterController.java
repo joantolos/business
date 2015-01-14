@@ -1,4 +1,4 @@
-package com.joantolos.spring.mvc.frontend.controller;
+package com.joantolos.spring.mvc.backend.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,11 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
- * Starter Controller just for PING the front end App so it's alive and the Spring context
+ * Starter Controller just for PING the back end App so it's alive and the Spring context
  * is correctly setted.
  * Created by jtolos on 13/01/2015.
  */
@@ -20,7 +19,7 @@ public class StarterController {
     private Logger logger = LoggerFactory.getLogger(StarterController.class);
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView getRoot(final HttpServletRequest request) throws IOException {
+    public ModelAndView getRoot() throws IOException {
 
         return new ModelAndView("index");
     }

@@ -15,13 +15,46 @@ Provides the basic functionallity to build a web application with:
 Besides some extra utilities to deal and manipulate Strings, Files and Json.
 
 # Architecture
-![alt tag](springMvcWebapp.png)
+![alt tag](webapp-frontend/src/main/webapp/resources/images/springMvcWebapp.png)
 
 The schema above represents an overview of the general architecture. Very simple design with three war files:
 
-* BACKEND: Communicates with the data base and expose the REST services to be consumed by the front-end.
-* FRONTEND: Consumes the services from Backend and shows the data on a gui based on Bootstrap.
-* API: Consumes the services from Backend and expose external services for third parties to consume.
+- **BACKEND:** Communicates with the data base and expose the REST services to be consumed by the front-end.
+- **FRONTEND:** Consumes the services from Backend and shows the data on a gui based on Bootstrap.
+- **API:** Consumes the services from Backend and expose external services for third parties to consume.
 
 And one jar file:
-* COMMON: Provides common utilities for all the other modules.
+- **COMMON:** Provides common utilities for all the other modules.
+
+# Starting the WebApp
+You will need Maven to compile the application. Just type 
+
+```
+mvn clean install 
+```
+
+on the **'../webapp/'** folder that contains the parent pom. This will compile the frontend, backend, common and api module. You can find the single war file for the frontend, backend and api modules on their respectives target folders, or you can use the ear file generated on the module "webapp-ear".
+
+# Deploying
+You can deploy the single war files on the same or differens machines with tomcat, jboss, etc... or you can use the ear file located on "../webapp/webapp-ear/target" and use tomme or jboss to deploy on the same instance. This is useful for developing on localhost.
+
+# Testing the WebApp
+Use this url to see if the backend is up:
+
+```http://localhost:8080/webapp-backend```
+
+Use this url to see if the front-end is up:
+
+```http://localhost:8080/webapp-frontend/```
+
+Use this url to test the ping-pong service:
+
+```http://localhost:8080/webapp-frontend/```
+
+You can also click the button on the greetings page to see the Ping Pong service.
+
+Change the default port (8080) if you have some custom configuration on your server.
+
+# Start hacking
+
+# Maven archetype
