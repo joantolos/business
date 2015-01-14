@@ -41,15 +41,21 @@ You can deploy the single war files on the same or differens machines with tomca
 # Testing the WebApp
 Use this url to see if the backend is up:
 
-```http://localhost:8080/webapp-backend```
+```
+http://localhost:8080/webapp-backend/
+```
 
 Use this url to see if the front-end is up:
 
-```http://localhost:8080/webapp-frontend/```
+```
+http://localhost:8080/webapp-frontend/
+```
 
 Use this url to test the ping-pong service:
 
-```http://localhost:8080/webapp-frontend/```
+```
+http://localhost:8080/webapp-frontend/
+```
 
 You can also click the button on the greetings page to see the Ping Pong service.
 
