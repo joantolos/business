@@ -2,6 +2,7 @@ package com.joantolos.spring.mvc.backend.dao.impl;
 
 import com.joantolos.spring.mvc.backend.dao.BaseDAO;
 import com.joantolos.spring.mvc.backend.dao.PingPongDAO;
+import com.joantolos.spring.mvc.common.exception.DAOException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -19,8 +20,12 @@ public class PingPongDAOImpl extends BaseDAO implements PingPongDAO {
 
     @Value("${sql.select.playPing}")
     private String selectPlayPing;
-    
-    public String playPing(){
+
+    public PingPongDAOImpl() throws DAOException {
+        
+    }
+
+    public String playPing() throws DAOException {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         
@@ -32,7 +37,7 @@ public class PingPongDAOImpl extends BaseDAO implements PingPongDAO {
                 return resultSet.getString("motion");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new DAOException(e.getMessage());
         } finally {
             super.closeAll(preparedStatement, resultSet);
         }

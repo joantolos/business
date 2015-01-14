@@ -1,5 +1,6 @@
 package com.joantolos.spring.mvc.backend.dao;
 
+import com.joantolos.spring.mvc.common.exception.DAOException;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.sql.*;
@@ -23,20 +24,14 @@ public abstract class BaseDAO {
     @Value("${db.password}")
     private String password = "1234";
     
-    public BaseDAO(){
+    public BaseDAO() throws DAOException {
         try {
             if(this.con == null) {
                 Class.forName(this.driver).newInstance();
                 this.con = DriverManager.getConnection(url + schema, user, password);
             }
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
+            throw new DAOException(e.getMessage());
         }
     }
 
@@ -45,7 +40,7 @@ public abstract class BaseDAO {
      * @param preparedStatement
      * @param resultSet
      */
-    public void closeAll(PreparedStatement preparedStatement, ResultSet resultSet){
+    public void closeAll(PreparedStatement preparedStatement, ResultSet resultSet) throws DAOException {
         try {
             if(preparedStatement!=null){
                 preparedStatement.close();
@@ -54,7 +49,7 @@ public abstract class BaseDAO {
                 resultSet.close();
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new DAOException(e.getMessage());
         }
     }
 }
