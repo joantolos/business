@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 /**
  *  
- * Created by u6019943 on 13/01/2015.
+ * Created by jtolos on 13/01/2015.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:/webapp-common-context-test.xml"})

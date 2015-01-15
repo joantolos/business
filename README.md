@@ -15,7 +15,7 @@ Provides the basic functionallity to build a web application with:
 Besides some extra utilities to deal and manipulate Strings, Files and Json.
 
 # Architecture
-![alt tag](webapp-frontend/src/main/webapp/resources/images/springMvcWebapp.png)
+![alt tag](webapp-frontend/src/main/webapp/resources/images/generalArchitecture.png)
 
 The schema above represents an overview of the general architecture. Very simple design with three war files:
 
@@ -78,5 +78,7 @@ Receives the request and returns the logic implemented on the corresponding serv
 Implements the logic of the service (go to database, etc)
 
 - **webapp.properties** file where the endpoints url are defined.
+
+![alt tag](webapp-frontend/src/main/webapp/resources/images/controllerDetail.png)
 
 # Maven archetype

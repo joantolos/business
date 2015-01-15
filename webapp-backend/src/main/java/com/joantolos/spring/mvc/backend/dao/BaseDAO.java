@@ -1,8 +1,11 @@
 package com.joantolos.spring.mvc.backend.dao;
 
 import com.joantolos.spring.mvc.common.exception.DAOException;
+import com.joantolos.spring.mvc.common.security.Decrypter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
+import javax.annotation.PostConstruct;
 import java.sql.*;
 
 /**
@@ -14,21 +17,29 @@ public abstract class BaseDAO {
     public Connection con = null;
 
     @Value("${db.url}")
-    private String url = "jdbc:mysql://localhost:3306/";
+    private String url;
     @Value("${db.schema}")
-    private String schema = "webapp_db_wc";
+    private String schema;
     @Value("${db.driver}")
-    private String driver = "com.mysql.jdbc.Driver";
+    private String driver;
     @Value("${db.user}")
-    private String user = "root";
+    private String user;
     @Value("${db.password}")
-    private String password = "1234";
+    private String password;
     
-    public BaseDAO() throws DAOException {
+    @Autowired
+    private Decrypter decrypter;
+    
+    public BaseDAO() {
+
+    }
+    
+    @PostConstruct
+    public void init() throws DAOException {
         try {
             if(this.con == null) {
                 Class.forName(this.driver).newInstance();
-                this.con = DriverManager.getConnection(url + schema, user, password);
+                this.con = DriverManager.getConnection(url + schema, user, this.decrypter.decrypt(password));
             }
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
             throw new DAOException(e.getMessage());
