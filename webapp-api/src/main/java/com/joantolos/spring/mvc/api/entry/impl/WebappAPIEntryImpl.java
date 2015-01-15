@@ -19,10 +19,4 @@ public class WebappAPIEntryImpl implements WebappAPIEntry {
         
         return this.playPingService.playPing();
     }
-
-    @Override
-    public PingPong playPingi() {
-
-        return this.playPingService.playPing();
-    }
 }

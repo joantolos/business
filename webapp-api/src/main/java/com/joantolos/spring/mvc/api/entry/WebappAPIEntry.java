@@ -19,8 +19,4 @@ public interface WebappAPIEntry {
     @Produces({ "text/xml" })
     public PingPong playPing(@QueryParam("motion")String motion);
 
-    @GET
-    @Path("/playPingi")
-    @Produces({ "text/xml" })
-    public PingPong playPingi();
 }
