@@ -61,26 +61,6 @@ You can also click the button on the greetings page to see the Ping Pong service
 
 Change the default port (8080) if you have some custom configuration on your server.
 
-# Start hacking
-
-Five basics points for start editing the code:
-
-- **PingController.java** on the frontend module:
-You can map the requests with the corresponding service.
-
-- **PingService.java** and **PingServiceImpl.java**: on the frontend module:
-What the request will do is basically call a service living on the backend module.
-
-- **PongController.java** on the backend module:
-Receives the request and returns the logic implemented on the corresponding service.
-
-- **PongService.java** and **PongServiceImpl.java** on the backend module:
-Implements the logic of the service (go to database, etc)
-
-- **webapp.properties** file where the endpoints url are defined.
-
-![alt tag](webapp-frontend/src/main/webapp/resources/images/controllerDetail.png)
-
 # The API
 The API war is located on the target folder of the api module and it is included on the ear file as well.
 
@@ -103,3 +83,23 @@ http://localhost:8080/webapp-api/rest/playPing
 ```
 
 The idea is to provide with REST services to third party to build their app on top of the API. Both the API and the frontend use the same services deployed on the backend war.
+
+# Start hacking
+
+Five basics points for start editing the code:
+
+- **PingController.java** on the frontend module:
+You can map the requests with the corresponding service.
+
+- **PingService.java** and **PingServiceImpl.java**: on the frontend module:
+What the request will do is basically call a service living on the backend module.
+
+- **PongController.java** on the backend module:
+Receives the request and returns the logic implemented on the corresponding service.
+
+- **PongService.java** and **PongServiceImpl.java** on the backend module:
+Implements the logic of the service (go to database, etc)
+
+- **webapp.properties** file where the endpoints url are defined.
+
+![alt tag](webapp-frontend/src/main/webapp/resources/images/controllerDetail.png)
