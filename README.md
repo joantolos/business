@@ -81,4 +81,25 @@ Implements the logic of the service (go to database, etc)
 
 ![alt tag](webapp-frontend/src/main/webapp/resources/images/controllerDetail.png)
 
-# Maven archetype
+# The API
+The API war is located on the target folder of the api module and it is included on the ear file as well.
+
+To access the API rest endpoint you can access the URL:
+
+```
+http://localhost:8080/webapp-api/
+```
+
+To test the ping-pong service you can try:
+
+```
+http://localhost:8080/webapp-api/rest/playPing
+```
+
+And it's prepared to receive a parameter (kind of motion):
+
+```
+http://localhost:8080/webapp-api/rest/playPing
+```
+
+The idea is to provide with REST services to third party to build their app on top of the API. Both the API and the frontend use the same services deployed on the backend war.

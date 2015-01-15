@@ -18,7 +18,7 @@
 
     <bean id="webappapientry" class="com.joantolos.spring.mvc.api.entry.impl.WebappAPIEntryImpl" />
         
-    <jaxrs:server id="playPingREST" address="/playPing">
+    <jaxrs:server id="webappapientryREST" address="/rest">
         <jaxrs:serviceBeans>
             <ref bean="webappapientry" />
         </jaxrs:serviceBeans>
