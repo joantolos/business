@@ -1,4 +1,4 @@
-# WebApp Template
+# Business Template
 Java, Spring MVC template.  
 Provides the basic functionallity to build a web application with:
 
@@ -15,7 +15,7 @@ Provides the basic functionallity to build a web application with:
 Besides some extra utilities to deal and manipulate Strings, Files and Json.
 
 # Architecture
-![alt tag](webapp-frontend/src/main/webapp/resources/images/generalArchitecture.png)
+![alt tag](business-frontend/src/main/webapp/resources/images/generalArchitecture.png)
 
 The schema above represents an overview of the general architecture. Very simple design with three war files:
 
@@ -82,7 +82,9 @@ And it's prepared to receive a parameter (kind of motion):
 http://localhost:8080/webapp-api/rest/playPing
 ```
 
-The idea is to provide with REST services to third party to build their app on top of the API. Both the API and the frontend use the same services deployed on the backend war.
+The idea is to provide with REST and SOAP services to third party to build their app on top of the API. Both the API and the frontend use the same services deployed on the backend war.
+
+![alt tag](business-frontend/src/main/webapp/resources/images/apiDetail.png)
 
 # Start hacking
 
@@ -100,6 +102,6 @@ Receives the request and returns the logic implemented on the corresponding serv
 - **PongService.java** and **PongServiceImpl.java** on the backend module:
 Implements the logic of the service (go to database, etc)
 
-- **webapp.properties** file where the endpoints url are defined.
+- **business.properties** file where the endpoints url are defined.
 
-![alt tag](webapp-frontend/src/main/webapp/resources/images/controllerDetail.png)
+![alt tag](business-frontend/src/main/webapp/resources/images/controllerDetail.png)
