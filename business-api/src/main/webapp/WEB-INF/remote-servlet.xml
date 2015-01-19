@@ -22,8 +22,6 @@
 	<import resource="classpath:META-INF/cxf/cxf.xml"/>
 	<import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
 
-	<bean id="commonValidationFeature" class="org.apache.cxf.validation.BeanValidationFeature"/>
-
 	<bean id="entrypoint" class="com.joantolos.business.api.server.BusinessAPI"/>
 
 	<!-- Servers: providing API endpoints -->
@@ -32,18 +30,12 @@
 			<entry key="mtom-enabled" value="true"/>
 			<entry key="publishedEndpointUrl" value="${api.publishedEndpointUrl}"/>
 		</jaxws:properties>
-		<jaxws:features>
-			<ref bean="commonValidationFeature"/>
-		</jaxws:features>
 	</jaxws:endpoint>
 
 	<jaxrs:server id="businessApiRest" address="/businessApiRest">
 		<jaxrs:serviceBeans>
 			<ref bean="entrypoint"/>
 		</jaxrs:serviceBeans>
-		<jaxrs:features>
-			<ref bean="commonValidationFeature"/>
-		</jaxrs:features>
 	</jaxrs:server>
 
 	<!-- Clients: Consuming internal Services
