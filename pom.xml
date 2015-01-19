@@ -12,13 +12,17 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     	<spring.version>4.0.5.RELEASE</spring.version>
-		<servlet.version>2.5</servlet.version>
+		<jax.servlet.version>2.5</jax.servlet.version>
+		<servlet.version>2.5.0</servlet.version>
+		<cxf.version>3.0.3</cxf.version>
+		<cxf.api.version>1.1.1</cxf.api.version>
 	</properties>
 
 	<modules>
 		<module>/business-common</module>
 		<module>/business-backend</module>
 		<module>/business-frontend</module>
+		<module>/business-api</module>
 		<module>/business-ear</module>
 	</modules>
 

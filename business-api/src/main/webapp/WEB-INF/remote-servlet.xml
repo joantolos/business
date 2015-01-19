@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:cxf="http://cxf.apache.org/core"
+	   xmlns:jaxws="http://cxf.apache.org/jaxws"
+	   xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	   xmlns:jaxrs-client="http://cxf.apache.org/jaxrs-client"
+	   xsi:schemaLocation="
+         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+         http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
+         http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+         http://cxf.apache.org/jaxrs-client http://cxf.apache.org/schemas/jaxrs-client.xsd
+         http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd"
+		>
+
+	<context:component-scan base-package="com.joantolos"/>
+	<context:annotation-config/>
+	<context:property-placeholder location="file:///${BUSINESS_CONF}/business.properties"/>
+
+	<import resource="classpath:META-INF/cxf/cxf.xml"/>
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
+
+	<bean id="commonValidationFeature" class="org.apache.cxf.validation.BeanValidationFeature"/>
+
+	<bean id="entrypoint" class="com.joantolos.business.api.server.BusinessAPI"/>
+
+	<!-- Servers: providing API endpoints -->
+	<jaxws:endpoint id="businessApiSoap" implementor="#entrypoint" address="/businessApiSoap">
+		<jaxws:properties>
+			<entry key="mtom-enabled" value="true"/>
+			<entry key="publishedEndpointUrl" value="${api.publishedEndpointUrl}"/>
+		</jaxws:properties>
+		<jaxws:features>
+			<ref bean="commonValidationFeature"/>
+		</jaxws:features>
+	</jaxws:endpoint>
+
+	<jaxrs:server id="businessApiRest" address="/businessApiRest">
+		<jaxrs:serviceBeans>
+			<ref bean="entrypoint"/>
+		</jaxrs:serviceBeans>
+		<jaxrs:features>
+			<ref bean="commonValidationFeature"/>
+		</jaxrs:features>
+	</jaxrs:server>
+
+	<!-- Clients: Consuming internal Services
+	<jaxrs-client:client id="restSearchService"
+						 serviceClass="${RestSearchService.v4.Class}"
+						 address="${SearchService.v4.EndpointHost}${RestSearchService.v4.Endpoint}"
+						 inheritHeaders="true">
+		<jaxrs-client:providers>
+			<bean class="com.thomson.ls.soa.stack.soaservices.service.contract.rest.provider.SearchOutputJacksonProvider"/>
+		</jaxrs-client:providers>
+	</jaxrs-client:client>
+	-->
+
+</beans>
