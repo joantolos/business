@@ -1,4 +1,4 @@
-package com.joantolos.spring.mvc.common.utils;
+package com.joantolos.business.common.utils;
 
 import com.joantolos.business.common.utils.JSONUtils;
 import junit.framework.Assert;

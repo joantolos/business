@@ -1,4 +1,4 @@
-package com.joantolos.spring.mvc.common.security;
+package com.joantolos.business.common.security;
 
 import com.joantolos.business.common.security.Decrypter;
 import com.joantolos.business.common.security.Encrypter;
