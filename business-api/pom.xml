@@ -131,4 +131,8 @@
 		</dependency>
 
     </dependencies>
+
+    <build>
+    <finalName>business-api</finalName>
+  </build>
 </project>

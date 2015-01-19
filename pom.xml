@@ -23,6 +23,7 @@
 		<module>/business-backend</module>
 		<module>/business-frontend</module>
 		<module>/business-api</module>
+		<module>/business-batch</module>
 		<module>/business-ear</module>
 	</modules>
 
