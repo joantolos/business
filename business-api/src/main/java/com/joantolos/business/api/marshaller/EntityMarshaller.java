@@ -1,7 +1,7 @@
 package com.joantolos.business.api.marshaller;
 
 import com.joantolos.business.api.ct.entity.PingPongOutput;
-import com.joantolos.spring.mvc.common.entity.PingPong;
+import com.joantolos.business.common.entity.PingPong;
 
 /**
  * Created by joan on 19/1/15.

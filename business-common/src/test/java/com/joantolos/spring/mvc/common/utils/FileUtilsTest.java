@@ -1,6 +1,7 @@
 package com.joantolos.spring.mvc.common.utils;
 
-import com.joantolos.spring.mvc.common.exception.FileManipulationException;
+import com.joantolos.business.common.exception.FileManipulationException;
+import com.joantolos.business.common.utils.FileUtils;
 import junit.framework.Assert;
 import org.junit.After;
 import org.junit.Before;

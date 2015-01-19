@@ -2,7 +2,7 @@ package com.joantolos.business.api.marshaller.impl;
 
 import com.joantolos.business.api.ct.entity.PingPongOutput;
 import com.joantolos.business.api.marshaller.EntityMarshaller;
-import com.joantolos.spring.mvc.common.entity.PingPong;
+import com.joantolos.business.common.entity.PingPong;
 import org.springframework.stereotype.Component;
 
 /**

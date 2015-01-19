@@ -1,6 +1,7 @@
 package com.joantolos.spring.mvc.common.utils;
 
-import com.joantolos.spring.mvc.common.exception.StringManipulationException;
+import com.joantolos.business.common.exception.StringManipulationException;
+import com.joantolos.business.common.utils.StringUtils;
 import junit.framework.Assert;
 import org.junit.After;
 import org.junit.Before;

@@ -1,5 +1,6 @@
 package com.joantolos.spring.mvc.common.utils;
 
+import com.joantolos.business.common.utils.JSONUtils;
 import junit.framework.Assert;
 import org.junit.After;
 import org.junit.Before;
@@ -9,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**

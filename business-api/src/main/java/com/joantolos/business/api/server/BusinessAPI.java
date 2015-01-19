@@ -5,7 +5,7 @@ import com.joantolos.business.api.ct.entity.PingPongOutput;
 import com.joantolos.business.api.ct.server.BusinessAPISoap;
 import com.joantolos.business.api.ct.server.BusinessAPIRest;
 import com.joantolos.business.api.client.PlayPingClient;
-import com.joantolos.spring.mvc.common.exception.DAOException;
+import com.joantolos.business.common.exception.DAOException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.jws.WebService;

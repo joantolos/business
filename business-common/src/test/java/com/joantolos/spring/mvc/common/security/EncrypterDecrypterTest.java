@@ -1,5 +1,7 @@
 package com.joantolos.spring.mvc.common.security;
 
+import com.joantolos.business.common.security.Decrypter;
+import com.joantolos.business.common.security.Encrypter;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

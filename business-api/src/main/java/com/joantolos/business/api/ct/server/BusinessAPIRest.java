@@ -1,7 +1,7 @@
 package com.joantolos.business.api.ct.server;
 
 import com.joantolos.business.api.ct.entity.PingPongOutput;
-import com.joantolos.spring.mvc.common.exception.DAOException;
+import com.joantolos.business.common.exception.DAOException;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
