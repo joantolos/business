@@ -35,5 +35,4 @@ public class BusinessAPI implements BusinessAPISoap, BusinessAPIRest {
         return this.playPingClient.playPing(input);
     }
 
-
 }

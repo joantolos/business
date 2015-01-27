@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlType;
 import java.io.Serializable;
 
 @XmlRootElement(name = "PingPongOutput")
-@XmlType(propOrder={"motion"})
+@XmlType(name="PingPongOutput",propOrder={"motion"})
 public class PingPongOutput implements Serializable {
     String motion;
 

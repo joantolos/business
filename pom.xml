@@ -19,6 +19,7 @@
 	</properties>
 
 	<modules>
+		<module>/business-conf</module>
 		<module>/business-common</module>
 		<module>/business-backend</module>
 		<module>/business-frontend</module>
