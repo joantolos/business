@@ -4,6 +4,7 @@ import com.joantolos.business.common.entity.Mail;
 import com.joantolos.utils.FileUtils;
 import com.joantolos.utils.exception.FileManipulationException;
 import com.joantolos.business.common.exception.MailServiceException;
+import com.joantolos.utils.security.Decrypter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -37,6 +38,9 @@ public class MailSenderImpl implements MailSender {
     
     @Autowired
     private FileUtils fileUtils;
+    
+    @Autowired
+    private Decrypter decrypter;
 
     @PostConstruct
     public void init(){
@@ -57,7 +61,7 @@ public class MailSenderImpl implements MailSender {
             Session session = this.getSession();
 
             message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(this.userFrom));
+            message.setFrom(new InternetAddress(this.decrypter.decrypt(this.userFrom)));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mail.getTo()));
             message.setSubject(mail.getSubject());
             message.setContent(this.createMailContent(mail));
@@ -80,7 +84,7 @@ public class MailSenderImpl implements MailSender {
             session = Session.getInstance(props,
                     new Authenticator() {
                         protected PasswordAuthentication getPasswordAuthentication() {
-                            return new PasswordAuthentication(userFrom, passwordFrom);
+                            return new PasswordAuthentication(decrypter.decrypt(userFrom), decrypter.decrypt(passwordFrom));
                         }
                     });
         }

@@ -5,6 +5,7 @@ import com.joantolos.business.common.entity.Mail;
 import com.joantolos.utils.FileUtils;
 import com.joantolos.utils.exception.FileManipulationException;
 import com.joantolos.business.common.exception.MailServiceException;
+import com.joantolos.utils.security.Decrypter;
 import junit.framework.Assert;
 import org.junit.After;
 import org.junit.Before;
@@ -32,6 +33,9 @@ public class MailBuilderTest {
 
     @Autowired
     FileUtils fileUtils;
+    
+    @Autowired
+    Decrypter decrypter;
 
     @Value("${mail.mail.to.test}")
     private String mailToTest;
@@ -46,7 +50,7 @@ public class MailBuilderTest {
         this.businessMail.setMailDate("01/01/2015");
         this.businessMail.setMailId(new Long(1));
         this.businessMail.setTopic("our super product");
-        this.businessMail.setUserMailAddress(this.mailToTest);
+        this.businessMail.setUserMailAddress(this.decrypter.decrypt(this.mailToTest));
         this.businessMail.setUserName("Joan Tolós");
 
         logger.info("Mail Builder test suite executing...");

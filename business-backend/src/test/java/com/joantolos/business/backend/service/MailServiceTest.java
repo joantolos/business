@@ -4,6 +4,7 @@ import com.joantolos.business.common.entity.Mail;
 import com.joantolos.utils.FileUtils;
 import com.joantolos.utils.exception.FileManipulationException;
 import com.joantolos.business.common.exception.MailServiceException;
+import com.joantolos.utils.security.Decrypter;
 import junit.framework.Assert;
 import org.junit.After;
 import org.junit.Before;
@@ -28,6 +29,9 @@ public class MailServiceTest {
 
     @Autowired
     FileUtils fileUtils;
+    
+    @Autowired
+    Decrypter decrypter;
 
     @Value("${mail.mail.to.test}")
     private String mailToTest;
@@ -42,7 +46,7 @@ public class MailServiceTest {
         mail = new Mail();
         mail.setSubject("test email");
         mail.setHtmlContent("Simple test text. Someone is compiling business-backend with TESTS");
-        mail.setTo(mailToTest);
+        mail.setTo(this.decrypter.decrypt(mailToTest));
         samplePdfFile = "/attachedFile/attachedFile.pdf";
         htmlMailBody = "/mail/template/successMail.html";
 

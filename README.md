@@ -15,7 +15,7 @@ Provides the basic functionallity to build a web application with:
 Besides some extra utilities to deal and manipulate Strings, Files and Json.
 
 # Architecture
-![alt tag](business-frontend/src/main/webapp/resources/images/generalArchitecture.png)
+![alt tag](business-frontend/src/main/business/resources/images/generalArchitecture.png)
 
 The schema above represents an overview of the general architecture. Very simple design with three war files:
 
@@ -26,35 +26,35 @@ The schema above represents an overview of the general architecture. Very simple
 And one jar file:
 - **COMMON:** Provides common utilities for all the other modules.
 
-# Starting the WebApp
+# Starting the business
 You will need Maven to compile the application. Just type 
 
 ```
 mvn clean install 
 ```
 
-on the **'../webapp/'** folder that contains the parent pom. This will compile the frontend, backend, common and api module. You can find the single war file for the frontend, backend and api modules on their respectives target folders, or you can use the ear file generated on the module "webapp-ear".
+on the **'../business/'** folder that contains the parent pom. This will compile the frontend, backend, common and api module. You can find the single war file for the frontend, backend and api modules on their respectives target folders, or you can use the ear file generated on the module "business-ear".
 
 # Deploying
-You can deploy the single war files on the same or different machines with tomcat, jboss, etc... or you can use the ear file located on "../webapp/webapp-ear/target" and use tomme or jboss to deploy on the same instance. This is useful for developing on localhost.
+You can deploy the single war files on the same or different machines with tomcat, jboss, etc... or you can use the ear file located on "../business/business-ear/target" and use tomme or jboss to deploy on the same instance. This is useful for developing on localhost.
 
-# Testing the WebApp
+# Testing the business
 Use this url to see if the backend is up:
 
 ```
-http://localhost:8080/webapp-backend/
+http://localhost:8080/business-backend/
 ```
 
 Use this url to see if the front-end is up:
 
 ```
-http://localhost:8080/webapp-frontend/
+http://localhost:8080/business-frontend/
 ```
 
 Use this url to test the ping-pong service:
 
 ```
-http://localhost:8080/webapp-frontend/ping
+http://localhost:8080/business-frontend/ping
 ```
 
 You can also click the button on the greetings page to see the Ping Pong service.
@@ -67,24 +67,24 @@ The API war is located on the target folder of the api module and it is included
 To access the API rest endpoint you can access the URL:
 
 ```
-http://localhost:8080/webapp-api/
+http://localhost:8080/business-api/
 ```
 
 To test the ping-pong service you can try:
 
 ```
-http://localhost:8080/webapp-api/rest/playPing
+http://localhost:8080/business-api/rest/playPing
 ```
 
 And it's prepared to receive a parameter (kind of motion):
 
 ```
-http://localhost:8080/webapp-api/rest/playPing
+http://localhost:8080/business-api/rest/playPing
 ```
 
 The idea is to provide with REST and SOAP services to third party to build their app on top of the API. Both the API and the frontend use the same services deployed on the backend war.
 
-![alt tag](business-frontend/src/main/webapp/resources/images/apiDetail.png)
+![alt tag](business-frontend/src/main/business/resources/images/apiDetail.png)
 
 # Start hacking
 
@@ -104,4 +104,4 @@ Implements the logic of the service (go to database, etc)
 
 - **business.properties** file where the endpoints url are defined.
 
-![alt tag](business-frontend/src/main/webapp/resources/images/controllerDetail.png)
+![alt tag](business-frontend/src/main/business/resources/images/controllerDetail.png)
