@@ -20,6 +20,11 @@
       <artifactId>business-common</artifactId>
       <version>15.0.1-SNAPSHOT</version>
     </dependency>
+    <dependency>
+      <groupId>com.joantolos.utils</groupId>
+      <artifactId>utils</artifactId>
+      <version>15.0.1-SNAPSHOT</version>
+    </dependency>
 
     <!-- Third party dependencies -->
     <dependency>
@@ -31,6 +36,11 @@
       <groupId>javax.mail</groupId>
       <artifactId>mail</artifactId>
       <version>1.4</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>18.0</version>
     </dependency>
 
   </dependencies>

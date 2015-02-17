@@ -2,7 +2,7 @@ package com.joantolos.business.backend.service;
 
 import com.joantolos.business.common.entity.BusinessMail;
 import com.joantolos.business.common.entity.Mail;
-import com.joantolos.business.common.exception.FileManipulationException;
+import com.joantolos.utils.exception.FileManipulationException;
 
 public interface MailBuilder {
     

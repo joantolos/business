@@ -1,8 +1,8 @@
 package com.joantolos.business.frontend.service.impl;
 
 import com.joantolos.business.common.entity.PingPong;
-import com.joantolos.business.common.utils.JSONUtils;
 import com.joantolos.business.frontend.service.PingService;
+import com.joantolos.utils.JSONUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

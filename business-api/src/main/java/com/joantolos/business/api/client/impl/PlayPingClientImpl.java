@@ -6,7 +6,7 @@ import com.joantolos.business.api.marshaller.EntityMarshaller;
 import com.joantolos.business.api.client.PlayPingClient;
 import com.joantolos.business.common.entity.PingPong;
 import com.joantolos.business.common.exception.DAOException;
-import com.joantolos.business.common.utils.JSONUtils;
+import com.joantolos.utils.JSONUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

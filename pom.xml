@@ -41,9 +41,6 @@
 	</dependencyManagement>
 
 	<dependencies>
-		<!-- Inner dependencies -->
-        
-
 		<!-- Junit -->
 		<dependency>
 			<groupId>junit</groupId>

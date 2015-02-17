@@ -1,10 +1,12 @@
 package com.joantolos.business.backend.service.impl;
 
 import com.joantolos.business.common.entity.Mail;
+import com.joantolos.utils.FileUtils;
+import com.joantolos.utils.exception.FileManipulationException;
 import com.joantolos.business.common.exception.MailServiceException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-
 import javax.annotation.PostConstruct;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -12,11 +14,13 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-import com.joantolos.business.backend.service.MailSenderService;
+import com.joantolos.business.backend.service.MailSender;
+
+import java.io.IOException;
 import java.util.Properties;
 
 @Component
-public class MailSenderServiceImpl implements MailSenderService {
+public class MailSenderImpl implements MailSender {
 
     private Properties props;
     
@@ -28,36 +32,39 @@ public class MailSenderServiceImpl implements MailSenderService {
     private String htmlCharset;
     @Value("${mail.smtp.starttls.enable}")
     private String starttls;
+    @Value("${mail.attach.file.extension}")
+    private String attachedFileType;
+    
+    @Autowired
+    private FileUtils fileUtils;
 
     @PostConstruct
     public void init(){
         props = new Properties();
         props.put("mail.smtp.starttls.enable", starttls);
+        props.setProperty("mail.host", "smtp.gmail.com");
         props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.port", "465");
+        props.put("mail.smtp.socketFactory.port", "465");
+        props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        props.put("mail.smtp.socketFactory.fallback", "false");
+        props.setProperty("mail.smtp.quitwait", "false");
     }
 
     public Message sendMail(Mail mail) throws MailServiceException {
         Message message;
         try {
-            Session session = getSession();
+            Session session = this.getSession();
 
             message = new MimeMessage(session);
             message.setFrom(new InternetAddress(this.userFrom));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mail.getTo()));
             message.setSubject(mail.getSubject());
-
-            Multipart multipart = new MimeMultipart();
-            BodyPart htmlPart = new MimeBodyPart();
-            htmlPart.setContent(mail.getHtmlContent(), this.htmlCharset);
-            
-            multipart.addBodyPart(htmlPart);
-
-            message.setContent(multipart);
+            message.setContent(this.createMailContent(mail));
 
             Transport.send(message);
-        } catch (MessagingException e) {
+            
+        } catch (MessagingException | IOException | FileManipulationException e) {
             throw new MailServiceException(e.getMessage());
         }
 
@@ -79,5 +86,25 @@ public class MailSenderServiceImpl implements MailSenderService {
         }
 
         return session;
+    }
+    
+    private Multipart createMailContent(Mail mail) throws MessagingException, IOException, FileManipulationException {        
+        // Html part
+        Multipart multipart = new MimeMultipart();
+        MimeBodyPart htmlPart = new MimeBodyPart();
+        htmlPart.setContent(mail.getHtmlContent(), this.htmlCharset);
+
+        // Attach part
+        if(mail.hasAttach()) {
+            MimeBodyPart attachPart = new MimeBodyPart();
+            attachPart.setFileName(mail.getAttachName());
+            attachPart.attachFile(this.fileUtils.byteArrayToFile(mail.getAttach(), mail.getAttachName()));
+
+            multipart.addBodyPart(attachPart);
+        }
+
+        multipart.addBodyPart(htmlPart);
+        
+        return multipart;
     }
 }

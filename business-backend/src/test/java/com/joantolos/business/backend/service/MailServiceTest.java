@@ -1,9 +1,9 @@
 package com.joantolos.business.backend.service;
 
 import com.joantolos.business.common.entity.Mail;
-import com.joantolos.business.common.exception.FileManipulationException;
+import com.joantolos.utils.FileUtils;
+import com.joantolos.utils.exception.FileManipulationException;
 import com.joantolos.business.common.exception.MailServiceException;
-import com.joantolos.business.common.utils.FileUtils;
 import junit.framework.Assert;
 import org.junit.After;
 import org.junit.Before;
@@ -24,7 +24,7 @@ import javax.mail.MessagingException;
 public class MailServiceTest {
 
     @Autowired
-    private MailSenderService mailService;
+    private MailSender mailService;
 
     @Autowired
     FileUtils fileUtils;
@@ -44,7 +44,7 @@ public class MailServiceTest {
         mail.setHtmlContent("Simple test text. Someone is compiling business-backend with TESTS");
         mail.setTo(mailToTest);
         samplePdfFile = "/attachedFile/attachedFile.pdf";
-        htmlMailBody = "/mail/templates/successMail.html";
+        htmlMailBody = "/mail/template/successMail.html";
 
         logger.info("Mail Service test suite executing...");
     }

@@ -3,9 +3,9 @@ package com.joantolos.business.backend.service.impl;
 import com.joantolos.business.backend.service.MailBuilder;
 import com.joantolos.business.common.entity.BusinessMail;
 import com.joantolos.business.common.entity.Mail;
-import com.joantolos.business.common.exception.FileManipulationException;
-import com.joantolos.business.common.utils.FileUtils;
-import com.joantolos.business.common.utils.StringUtils;
+import com.joantolos.utils.exception.FileManipulationException;
+import com.joantolos.utils.FileUtils;
+import com.joantolos.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -19,7 +19,7 @@ public class MailBuilderImpl implements MailBuilder {
     @Value("${mail.templates.error.path}")
     private String templateErrorPath;
 
-    @Value("${mail.attach.fil.extension}")
+    @Value("${mail.attach.file.extension}")
     private String attachFileExtension;
 
     @Autowired

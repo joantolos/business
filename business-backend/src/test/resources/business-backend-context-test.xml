@@ -6,7 +6,7 @@
                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
-    <context:component-scan base-package="com.joantolos.business" />
+    <context:component-scan base-package="com.joantolos" />
     <context:annotation-config />
 
     <context:property-placeholder location="file:${BUSINESS_CONF}/business.properties"/>

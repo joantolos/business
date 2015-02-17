@@ -1,7 +1,7 @@
 package com.joantolos.business.backend.dao;
 
 import com.joantolos.business.common.exception.DAOException;
-import com.joantolos.business.common.security.Decrypter;
+import com.joantolos.utils.security.Decrypter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
