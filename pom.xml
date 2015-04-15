@@ -25,6 +25,7 @@
 		<module>/business-frontend</module>
 		<module>/business-api</module>
 		<module>/business-batch</module>
+		<module>/business-test</module>
 		<module>/business-ear</module>
 	</modules>
 
@@ -81,14 +82,25 @@
 					<showDeprecation>true</showDeprecation>
 				</configuration>
 			</plugin>
+		</plugins>
+	</build>
+	<reporting>
+		<plugins>
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.2.1</version>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.4.1</version>
 				<configuration>
-					<mainClass>org.test.int1.Main</mainClass>
+					<filesets>
+						<fileset>
+							<directory>.</directory>
+							<includes>
+								<include>**/*.ser</include>
+							</includes>
+						</fileset>
+					</filesets>
 				</configuration>
 			</plugin>
 		</plugins>
-	</build>
+	</reporting>
 </project>

@@ -1,0 +1,64 @@
+<project>
+    <target name="instrument">
+        <antcall target="instrumentAModule">
+            <param name="module" value="business-api"/>
+        </antcall>
+        <antcall target="instrumentAModule">
+            <param name="module" value="business-backend"/>
+        </antcall>
+        <antcall target="instrumentAModule">
+            <param name="module" value="business-common"/>
+        </antcall>
+        <antcall target="instrumentAModule">
+            <param name="module" value="business-conf"/>
+        </antcall>
+        <antcall target="instrumentAModule">
+            <param name="module" value="business-frontend"/>
+        </antcall>
+    </target>
+
+    <target name="instrumentAModule">
+        <cobertura-instrument todir="${module}/target/classes">
+            <fileset dir="../../${module}/target/classes">
+                <include name="**/*.class"/>
+            </fileset>
+        </cobertura-instrument>
+    </target>
+
+    <target name="report" depends="merge">
+        <cobertura-report datafile="sum.ser" format="html" destdir="target/report">
+            <fileset dir="../../business-api/src/main/java/"/>
+        </cobertura-report>
+        <cobertura-report datafile="sum.ser" format="html" destdir="target/report">
+            <fileset dir="../../business-backend/src/main/java/"/>
+        </cobertura-report>
+        <cobertura-report datafile="sum.ser" format="html" destdir="target/report">
+            <fileset dir="../../business-common/src/main/java/"/>
+        </cobertura-report>
+        <cobertura-report datafile="sum.ser" format="html" destdir="target/report">
+            <fileset dir="../../business-conf/src/main/java/"/>
+        </cobertura-report>
+        <cobertura-report datafile="sum.ser" format="html" destdir="target/report">
+            <fileset dir="../../business-frontend/src/main/java/"/>
+        </cobertura-report>
+    </target>
+
+    <target name="merge">
+        <cobertura-merge datafile="sum.ser">
+            <fileset dir=".">
+                <include name="**/cobertura.ser"/>
+            </fileset>
+        </cobertura-merge>
+    </target>
+
+    <property name="cobertura.dir" value="C:/workarea/tools/cobertura-2.1.1"/>
+    
+    <path id="cobertura.classpath">
+        <fileset dir="${cobertura.dir}">
+            <include name="cobertura-2.1.1.jar"/>
+            <include name="lib/**/*.jar"/>
+        </fileset>
+    </path>
+    
+    <taskdef classpathref="cobertura.classpath" resource="tasks.properties"/>
+</project>
