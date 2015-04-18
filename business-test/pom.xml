@@ -17,7 +17,6 @@
     <modules>
         <module>business-test-integration</module>
         <module>business-test-acceptance</module>
-        <module>business-test-coverage</module>
     </modules>
 
 </project>

@@ -18,43 +18,47 @@
     </target>
 
     <target name="instrumentModule">
-        <cobertura-instrument todir="../../${module}/target/classes">
-            <fileset dir="../../${module}/target/classes">
+        <cobertura-instrument todir="../../../${module}/target/classes">
+            <fileset dir="../../../${module}/target/classes">
                 <include name="**/*.class"/>
             </fileset>
         </cobertura-instrument>
     </target>
 
     <target name="report" depends="merge">
-        <cobertura-report datafile="sum.ser" format="html" destdir="target/report">
-            <fileset dir="../../business-api"/>
+        <cobertura-report datafile="sum.ser" format="html" destdir="../target/report">
+            <fileset dir="../../../business-api"/>
         </cobertura-report>
-        <cobertura-report datafile="sum.ser" format="html" destdir="target/report">
-            <fileset dir="../../business-backend"/>
+        <cobertura-report datafile="sum.ser" format="html" destdir="../target/report">
+            <fileset dir="../../../business-backend"/>
         </cobertura-report>
-        <cobertura-report datafile="sum.ser" format="html" destdir="target/report">
-            <fileset dir="../../business-common"/>
+        <cobertura-report datafile="sum.ser" format="html" destdir="../target/report">
+            <fileset dir="../../../business-common"/>
         </cobertura-report>
-        <cobertura-report datafile="sum.ser" format="html" destdir="target/report">
-            <fileset dir="../../business-conf"/>
+        <cobertura-report datafile="sum.ser" format="html" destdir="../target/report">
+            <fileset dir="../../../business-conf"/>
         </cobertura-report>
-        <cobertura-report datafile="sum.ser" format="html" destdir="target/report">
-            <fileset dir="../../business-frontend"/>
+        <cobertura-report datafile="sum.ser" format="html" destdir="../target/report">
+            <fileset dir="../../../business-frontend"/>
         </cobertura-report>
     </target>
 
     <target name="merge">
         <cobertura-merge datafile="sum.ser">
-            <fileset dir="../../">
+            <fileset dir="../../../">
                 <include name="**/cobertura.ser"/>
             </fileset>
         </cobertura-merge>
     </target>
 
     <target name="cleanCoberturaFiles">
-        <delete file="./*.ser"/>
-        <delete file="../*.ser"/>
-        <delete file="../../*.ser"/>
+        <delete file="cobertura.ser"/>
+        <delete file="sum.ser"/>
+        <delete file="../../../business-api/cobertura.ser"/>
+        <delete file="../../../business-backend/cobertura.ser"/>
+        <delete file="../../../business-common/cobertura.ser"/>
+        <delete file="../../../business-conf/cobertura.ser"/>
+        <delete file="../../../business-frontend/cobertura.ser"/>
     </target>
     
     <path id="cobertura.classpath">
