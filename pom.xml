@@ -49,7 +49,6 @@
 			<version>4.10</version>
 			<scope>test</scope>
 		</dependency>
-
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
