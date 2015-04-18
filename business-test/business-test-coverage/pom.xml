@@ -30,6 +30,7 @@
                     <compilerArgument>-Werror</compilerArgument>
                 </configuration>
             </plugin>
+            <!--
             <plugin>
                 <artifactId>exec-maven-plugin</artifactId>
                 <groupId>org.codehaus.mojo</groupId>
@@ -41,11 +42,12 @@
                             <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <executable>${basedir}/createTestCoverageReport.sh</executable>
+                            <executable>${basedir}/scripts/createTestCoverageReport.sh</executable>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
+            -->
         </plugins>
     </build>
 </project>
