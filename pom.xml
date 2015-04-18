@@ -26,7 +26,6 @@
 		<module>/business-api</module>
 		<module>/business-batch</module>
 		<module>/business-test</module>
-		<module>/business-test/business-test-coverage</module>
 		<module>/business-ear</module>
 	</modules>
 

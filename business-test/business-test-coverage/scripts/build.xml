@@ -26,19 +26,20 @@
     </target>
 
     <target name="report" depends="merge">
-        <cobertura-report datafile="sum.ser" format="html" destdir="../target/report">
+        <antcall target="cleanCoberturaReport" />
+        <cobertura-report datafile="sum.ser" format="html" destdir="../report">
             <fileset dir="../../../business-api"/>
         </cobertura-report>
-        <cobertura-report datafile="sum.ser" format="html" destdir="../target/report">
+        <cobertura-report datafile="sum.ser" format="html" destdir="../report">
             <fileset dir="../../../business-backend"/>
         </cobertura-report>
-        <cobertura-report datafile="sum.ser" format="html" destdir="../target/report">
+        <cobertura-report datafile="sum.ser" format="html" destdir="../report">
             <fileset dir="../../../business-common"/>
         </cobertura-report>
-        <cobertura-report datafile="sum.ser" format="html" destdir="../target/report">
+        <cobertura-report datafile="sum.ser" format="html" destdir="../report">
             <fileset dir="../../../business-conf"/>
         </cobertura-report>
-        <cobertura-report datafile="sum.ser" format="html" destdir="../target/report">
+        <cobertura-report datafile="sum.ser" format="html" destdir="../report">
             <fileset dir="../../../business-frontend"/>
         </cobertura-report>
     </target>
@@ -49,6 +50,12 @@
                 <include name="**/cobertura.ser"/>
             </fileset>
         </cobertura-merge>
+    </target>
+
+    <target name="cleanCoberturaReport">
+        <delete includeEmptyDirs="true" failonerror="false">
+            <fileset dir="../report"/>
+        </delete>
     </target>
 
     <target name="cleanCoberturaFiles">

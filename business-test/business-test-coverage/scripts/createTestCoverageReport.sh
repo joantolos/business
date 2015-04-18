@@ -21,5 +21,5 @@ mvn test &&
 
 #Creating the Cobertura Report and cleaning Cobertura files
 cd business-test/business-test-coverage/scripts &&
-ant report
+ant report &&
 ant cleanCoberturaFiles
