@@ -67,9 +67,11 @@
         <delete file="../../../business-conf/cobertura.ser"/>
         <delete file="../../../business-frontend/cobertura.ser"/>
     </target>
+
+    <property environment="env"/>
     
     <path id="cobertura.classpath">
-        <fileset dir="C:/workarea/tools/cobertura-2.1.1">
+        <fileset dir="${env.COBERTURA_HOME}">
             <include name="cobertura-2.1.1.jar"/>
             <include name="lib/**/*.jar"/>
         </fileset>

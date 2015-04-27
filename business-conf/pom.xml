@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.joan.tolos.business</groupId>
+        <groupId>com.joantolos.business</groupId>
         <artifactId>business</artifactId>
         <version>15.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.joan.tolos.business.conf</groupId>
+    <groupId>com.joantolos.business.conf</groupId>
     <artifactId>business-conf</artifactId>
     <version>15.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
